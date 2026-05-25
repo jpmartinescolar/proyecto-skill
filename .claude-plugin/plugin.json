@@ -1,0 +1,14 @@
+{
+  "name": "demo-plugin",
+  "version": "0.1.0",
+  "description": "Plugin de ejemplo para Claude Code con una skill (hello-world) y un sub-agente (markdown-reviewer).",
+  "author": {
+    "name": "Jose Pedro Martin Escolar",
+    "email": "jpmartin@innovaciondespachos.com",
+    "url": "https://github.com/jpmartinescolar"
+  },
+  "homepage": "https://github.com/jpmartinescolar/proyecto-skill",
+  "repository": "https://github.com/jpmartinescolar/proyecto-skill",
+  "license": "MIT",
+  "keywords": ["example", "demo", "skill", "agent", "starter"]
+}

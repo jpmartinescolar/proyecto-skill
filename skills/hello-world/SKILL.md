@@ -22,7 +22,7 @@ Invoca esta skill cuando:
 
 ## Ejemplo de uso
 
-**Usuario:** /hello-world
+**Usuario:** /demo-plugin:hello-world
 
 **Claude:**
 > ¡Hola! Soy una skill de ejemplo. ¿Cuál es tu nombre?
@@ -37,12 +37,14 @@ Invoca esta skill cuando:
 > YAML (`name` y `description`) define cuándo se activa, y el cuerpo Markdown
 > contiene las instrucciones que sigo.
 
-## Estructura de archivos
+## Estructura dentro del plugin
 
 ```
-skills/
-└── hello-world/
-    └── SKILL.md   ← este archivo
+demo-plugin/
+├── .claude-plugin/plugin.json
+└── skills/
+    └── hello-world/
+        └── SKILL.md   ← este archivo
 ```
 
 ## Notas
