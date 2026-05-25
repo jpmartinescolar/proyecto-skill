@@ -1,0 +1,19 @@
+{
+  "name": "proyecto-skill",
+  "owner": {
+    "name": "Jose Pedro Martin Escolar",
+    "email": "jpmartin@innovaciondespachos.com",
+    "url": "https://github.com/jpmartinescolar"
+  },
+  "description": "Marketplace de plugins de ejemplo para Claude Code.",
+  "plugins": [
+    {
+      "name": "demo-plugin",
+      "source": "./plugins/demo-plugin",
+      "description": "Plugin de ejemplo con una skill (hello-world) y un sub-agente (markdown-reviewer).",
+      "version": "0.1.0",
+      "category": "examples",
+      "keywords": ["example", "demo", "skill", "agent", "starter"]
+    }
+  ]
+}

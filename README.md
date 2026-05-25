@@ -1,59 +1,54 @@
-# demo-plugin
+# proyecto-skill — marketplace de plugins
 
-Plugin de ejemplo para [Claude Code](https://claude.com/claude-code). Sirve como plantilla mínima para entender la estructura de un plugin con **skills** y **sub-agentes**.
+Marketplace de ejemplo para [Claude Code](https://claude.com/claude-code). Contiene un plugin demo (`demo-plugin`) con una skill y un sub-agente.
 
-## ¿Qué es un plugin de Claude Code?
+## ¿Qué es un marketplace y qué es un plugin?
 
-Un plugin es un paquete reutilizable bajo un namespace único que puede contener skills, sub-agentes, slash commands, hooks y servidores MCP. Se instala desde un repo Git o un marketplace y queda disponible en todos tus proyectos.
+- **Marketplace**: catálogo (`.claude-plugin/marketplace.json`) que lista uno o varios plugins. Es lo que se añade a Claude Code con `/plugin marketplace add`.
+- **Plugin**: paquete con su propio manifiesto (`.claude-plugin/plugin.json`) que agrupa skills, sub-agentes, slash commands, hooks y/o servidores MCP bajo un namespace único.
 
-📚 Docs oficiales: https://code.claude.com/docs/en/plugins.md
+📚 Docs oficiales: https://code.claude.com/docs/en/plugin-marketplaces.md
 
-## Estructura del plugin
+## Estructura del repo
 
 ```
 proyecto-skill/
 ├── .claude-plugin/
-│   └── plugin.json              ← manifiesto del plugin
-├── skills/
-│   └── hello-world/
-│       └── SKILL.md             ← skill de saludo
-├── agents/
-│   └── markdown-reviewer.md     ← sub-agente revisor de Markdown
-├── README.md
-└── .gitignore
+│   └── marketplace.json                       ← catálogo del marketplace
+└── plugins/
+    └── demo-plugin/
+        ├── .claude-plugin/
+        │   └── plugin.json                    ← manifiesto del plugin
+        ├── skills/
+        │   └── hello-world/SKILL.md           ← skill de saludo
+        └── agents/
+            └── markdown-reviewer.md           ← sub-agente revisor
 ```
 
-## Contenido
+## Cómo instalarlo en Claude Code
+
+1. **Añade el marketplace** (en Claude Code):
+   ```
+   /plugin marketplace add jpmartinescolar/proyecto-skill
+   ```
+2. **Instala el plugin** del catálogo:
+   ```
+   /plugin install demo-plugin@proyecto-skill
+   ```
+
+## Contenido del plugin `demo-plugin`
 
 | Pieza | Tipo | Invocación |
 |------|------|------------|
-| [hello-world](skills/hello-world/SKILL.md) | Skill | `/demo-plugin:hello-world` |
-| [markdown-reviewer](agents/markdown-reviewer.md) | Sub-agente | Vía `Agent` con `subagent_type: markdown-reviewer` |
+| [hello-world](plugins/demo-plugin/skills/hello-world/SKILL.md) | Skill | `/demo-plugin:hello-world` |
+| [markdown-reviewer](plugins/demo-plugin/agents/markdown-reviewer.md) | Sub-agente | Vía `Agent` con `subagent_type: markdown-reviewer` |
 
-## Instalación
+## Crear tu propio marketplace a partir de este
 
-### Opción 1 — desde GitHub
-En Claude Code:
-```
-/plugin install jpmartinescolar/proyecto-skill
-```
-
-### Opción 2 — desarrollo local
-Clona el repo y arranca Claude Code apuntando al directorio:
-```bash
-git clone https://github.com/jpmartinescolar/proyecto-skill.git
-cd proyecto-skill
-claude --plugin-dir .
-```
-
-Durante el desarrollo, recarga cambios con `/reload-plugins`.
-
-## Crear tu propio plugin a partir de este
-
-1. Haz fork o clona este repo.
-2. Edita [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) con tu nombre, autor y descripción.
-3. Añade tus propias skills en `skills/<nombre>/SKILL.md` y sub-agentes en `agents/<nombre>.md`.
-4. Sube tu repo a GitHub y compártelo.
+1. Haz fork o clona el repo.
+2. Edita [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) con tu nombre y la lista de plugins.
+3. Añade más plugins en `plugins/<nombre>/` (cada uno con su propio `.claude-plugin/plugin.json`).
+4. Sube el repo a GitHub y compártelo.
 
 ## Licencia
 
